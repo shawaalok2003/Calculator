@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            width: 240px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .screen {
+            margin-bottom: 10px;
+            padding: 10px;
+            text-align: right;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+        
+        .btn-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        
+        .btn {
+            padding: 10px;
+            text-align: center;
+            background-color: #e6e6e6;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #d4d4d4;
+        }
+        
+        .btn.operator {
+            background-color: #ff9500;
+            color: #fff;
+        }
+        
+        .btn.operator:hover {
+            background-color: #ff8100;
+        }
+        
+        .btn.clear {
+            background-color: #ff3b30;
+            color: #fff;
+        }
+        
+        .btn.clear:hover {
+            background-color: #ff2d26;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="screen" id="result"></div>
+        <div class="btn-container">
+            <button class="btn operator" onclick="addToResult('/')">÷</button>
+            <button class="btn" onclick="addToResult('7')">7</button>
+            <button class="btn" onclick="addToResult('8')">8</button>
+            <button class="btn" onclick="addToResult('9')">9</button>
+            <button class="btn operator" onclick="addToResult('*')">x</button>
+            <button class="btn" onclick="addToResult('4')">4</button>
+            <button class="btn" onclick="addToResult('5')">5</button>
+            <button class="btn" onclick="addToResult('6')">6</button>
+            <button class="btn operator" onclick="addToResult('-')">-</button>
+            <button class="btn" onclick="addToResult('1')">1</button>
+            <button class="btn" onclick="addToResult('2')">2</button>
+            <button class="btn" onclick="addToResult('3')">3</button>
+            <button class="btn operator" onclick="addToResult('+')">+</button>
+            <button class="btn clear" onclick="clearResult()">C</button>
+            <button class="btn" onclick="addToResult('0')">0</button>
+            <button class="btn" onclick="addToResult('.')">.</button>
+            <button class="btn operator" onclick="calculate()">=</button>
+        </div>
+    </div>
+    
+    <script>
+        function addToResult(value)
